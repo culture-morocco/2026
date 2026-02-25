@@ -1,8 +1,503 @@
-<!doctype html>
-<html>
-  <head><meta charset="utf-8"><title>Test</title></head>
-  <body style="font-family:Arial;padding:40px">
-    <h1>OK GitHub Pages ✅</h1>
-    <p>Site is working.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marocco — Sito Ufficiale (Progetto)</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --muted:#9fb0d0;
+      --text:#eaf0ff;
+      --accent:#38bdf8;
+      --accent2:#22c55e;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 900px at 20% 10%, rgba(56,189,248,.25), transparent 60%),
+                  radial-gradient(1000px 800px at 80% 20%, rgba(34,197,94,.18), transparent 55%),
+                  linear-gradient(180deg, #070b14, var(--bg));
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{width:min(1100px, 92%); margin:0 auto}
+
+    /* Top bar */
+    header{
+      position:sticky; top:0; z-index:50;
+      background: rgba(7,11,20,.65);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(56,189,248,.9), rgba(34,197,94,.9));
+      box-shadow: var(--shadow);
+      display:grid; place-items:center;
+      font-weight:900; color:#07101f;
+    }
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .pill{
+      padding:8px 12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius:999px;
+      font-size:14px;
+      color:var(--muted);
+      transition:.2s;
+    }
+    .pill:hover{transform:translateY(-1px); border-color: rgba(56,189,248,.35); color:var(--text)}
+    .pill.active{border-color: rgba(56,189,248,.55); color:var(--text)}
+
+    /* Hero */
+    .hero{
+      padding:34px 0 10px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width:900px){
+      .heroGrid{grid-template-columns:1fr}
+      nav{justify-content:flex-start}
+    }
+    .heroCard{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroMain{padding:22px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      color:var(--muted);
+      font-size:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      padding:7px 10px;
+      border-radius:999px;
+    }
+    h1{margin:14px 0 10px; line-height:1.1; font-size:38px}
+    .lead{color:var(--muted); margin:0 0 14px}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:600;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .btn.primary{
+      border-color: rgba(56,189,248,.55);
+      background: linear-gradient(135deg, rgba(56,189,248,.35), rgba(34,197,94,.18));
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .heroMedia{
+      height:100%;
+      display:grid;
+      grid-template-rows: 1fr auto;
+    }
+    .heroImg{
+      min-height:220px;
+      background:
+        linear-gradient(180deg, rgba(7,11,20,.1), rgba(7,11,20,.65)),
+        url("https://upload.wikimedia.org/wikipedia/commons/3/3a/Marrakech_marketplace.jpg");
+      background-size:cover;
+      background-position:center;
+      border-bottom:1px solid var(--border);
+    }
+    .heroStats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      padding:16px;
+    }
+    .stat{
+      border:1px solid var(--border);
+      border-radius:14px;
+      background: rgba(255,255,255,.03);
+      padding:12px;
+    }
+    .stat b{display:block; font-size:16px}
+    .stat span{color:var(--muted); font-size:13px}
+
+    /* Sections */
+    section{padding:26px 0}
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin-bottom:14px;
+    }
+    .sectionHead h2{margin:0; font-size:26px}
+    .sectionHead p{margin:0; color:var(--muted); max-width:60ch}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 6;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+    .card.small{grid-column: span 4}
+    .card.full{grid-column: span 12}
+    @media (max-width:900px){
+      .card, .card.small{grid-column: span 12}
+    }
+    .cardBody{padding:16px}
+    .cardTitle{display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .badge{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--border);
+      padding:6px 10px; border-radius:999px;
+      background: rgba(255,255,255,.03);
+      white-space:nowrap;
+    }
+    .cardBody h3{margin:0 0 6px; font-size:18px}
+    .cardBody p{margin:0; color:var(--muted)}
+    .media{
+      width:100%;
+      aspect-ratio: 16/9;
+      border-bottom:1px solid var(--border);
+      background:#0a0f1f;
+    }
+    iframe{width:100%; height:100%; border:0}
+
+    /* Footer */
+    footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .footerGrid{
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;
+    }
+    .sources{display:flex; gap:10px; flex-wrap:wrap}
+    .sourceLink{
+      border:1px solid var(--border);
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+    }
+
+    /* Smooth scroll offset for sticky header */
+    .anchor{scroll-margin-top:80px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo">MA</div>
+        <div>
+          <div style="font-size:15px; opacity:.95">Progetto: <span style="color:var(--accent)">Marocco</span></div>
+          <div style="font-size:12px; color:var(--muted)">Sport • Cultura • Politica • Monumenti • Musica</div>
+        </div>
+      </div>
+      <nav id="nav">
+        <a class="pill" href="#sport">Sport</a>
+        <a class="pill" href="#cultura">Cultura</a>
+        <a class="pill" href="#politica">Politica</a>
+        <a class="pill" href="#monumenti">Monumenti</a>
+        <a class="pill" href="#musica">Musica</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="heroGrid">
+        <div class="heroCard heroMain">
+          <div class="kicker">🇲🇦 Presentazione ufficiale (progetto scolastico)</div>
+          <h1>Marocco: identità, storia e vita contemporanea</h1>
+          <p class="lead">
+            Un sito in lingua italiana che esplora il Marocco attraverso <b>5 sezioni</b>:
+            sport, cultura, politica, monumenti storici e musica.
+          </p>
+          <div class="ctaRow">
+            <button class="btn primary" onclick="document.querySelector('#cultura').scrollIntoView({behavior:'smooth'})">
+              Inizia dalla Cultura
+            </button>
+            <button class="btn" onclick="document.querySelector('#monumenti').scrollIntoView({behavior:'smooth'})">
+              Vai ai Monumenti
+            </button>
+          </div>
+          <div style="margin-top:14px; color:var(--muted); font-size:13px">
+            Suggerimento: puoi sostituire testi, immagini, video e audio con contenuti più specifici.
+          </div>
+        </div>
+
+        <div class="heroCard heroMedia">
+          <div class="heroImg" aria-label="Immagine di Marrakech"></div>
+          <div class="heroStats">
+            <div class="stat">
+              <b>Capitale</b>
+              <span>Rabat</span>
+            </div>
+            <div class="stat">
+              <b>Lingue</b>
+              <span>Arabo, Amazigh (tamazight)</span>
+            </div>
+            <div class="stat">
+              <b>Geografia</b>
+              <span>Atlantico, Mediterraneo, Atlante, Sahara</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPORT -->
+    <section id="sport" class="anchor">
+      <div class="sectionHead">
+        <div>
+          <h2>Sport</h2>
+          <p>Il calcio è lo sport più seguito, ma esistono anche discipline tradizionali e moderne.</p>
+        </div>
+        <span class="badge">Sezione 1/5</span>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/8/84/Stade_Moulay_Abdellah_Rabat.jpg') center/cover;"></div>
+          <div class="cardBody">
+            <div class="cardTitle">
+              <h3>Calcio e grandi eventi</h3>
+              <span class="badge">Panoramica</span>
+            </div>
+            <p>
+              Il Marocco ha una forte cultura calcistica, con stadi importanti e una grande partecipazione dei tifosi.
+              Le competizioni locali e internazionali attirano un pubblico molto ampio.
+            </p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/9bZkp7q19f0"
+              title="Video incorporato (sostituisci con un video sul Marocco)"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <div class="cardBody">
+            <div class="cardTitle">
+              <h3>Video (da personalizzare)</h3>
+              <span class="badge">YouTube Embed</span>
+            </div>
+            <p>
+              Qui puoi inserire un video ufficiale (es. turismo, sport, cultura). Cambia il link “embed” con un video sul Marocco.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CULTURA -->
+    <section id="cultura" class="anchor">
+      <div class="sectionHead">
+        <div>
+          <h2>Cultura</h2>
+          <p>Tradizioni, artigianato, cucina, ospitalità e diversità culturale tra città e regioni.</p>
+        </div>
+        <span class="badge">Sezione 2/5</span>
+      </div>
+
+      <div class="grid">
+        <article class="card small">
+          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/1/1b/Moroccan_tea.jpg') center/cover;"></div>
+          <div class="cardBody">
+            <h3>Ospitalità e tè alla menta</h3>
+            <p>Il tè alla menta è un simbolo di accoglienza e socialità.</p>
+          </div>
+        </article>
+
+        <article class="card small">
+          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/0/0a/Tagine.jpg') center/cover;"></div>
+          <div class="cardBody">
+            <h3>Cucina</h3>
+            <p>Piatti come tajine e couscous rappresentano identità e convivialità.</p>
+          </div>
+        </article>
+
+        <article class="card small">
+          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/9/9f/Fes_medina.jpg') center/cover;"></div>
+          <div class="cardBody">
+            <h3>Medine e artigianato</h3>
+            <p>Le medine storiche sono ricche di souk, mosaici, legno intagliato e pelle.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- POLITICA -->
+    <section id="politica" class="anchor">
+      <div class="sectionHead">
+        <div>
+          <h2>Politica</h2>
+          <p>Informazioni generali e neutre: istituzioni, capitale amministrativa e funzioni principali.</p>
+        </div>
+        <span class="badge">Sezione 3/5</span>
+      </div>
+
+      <div class="grid">
+        <article class="card full">
+          <div class="cardBody">
+            <div class="cardTitle">
+              <h3>Struttura istituzionale (sintesi)</h3>
+              <span class="badge">Neutrale</span>
+            </div>
+            <p>
+              Il Marocco è uno Stato del Nord Africa con istituzioni nazionali e locali.
+              Rabat è la capitale amministrativa e politica. Questa sezione può includere:
+              Parlamento, governo, regioni e principali servizi pubblici.
+            </p>
+            <p style="margin-top:10px">
+              ✅ Consiglio per la prof: aggiungi 3–5 righe su “come lo Stato organizza sanità, educazione e infrastrutture”.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MONUMENTI -->
+    <section id="monumenti" class="anchor">
+      <div class="sectionHead">
+        <div>
+          <h2>Monumenti e luoghi storici</h2>
+          <p>Patrimonio architettonico e siti celebri: città imperiali, moschee, kasbah e piazze storiche.</p>
+        </div>
+        <span class="badge">Sezione 4/5</span>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/5/5b/Hassan_II_Mosque_Casablanca.jpg') center/cover;"></div>
+          <div class="cardBody">
+            <h3>Moschea Hassan II (Casablanca)</h3>
+            <p>Una delle opere architettoniche più conosciute, affacciata sull’oceano Atlantico.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/0/0c/Ait_Benhaddou_2017.jpg') center/cover;"></div>
+          <div class="cardBody">
+            <h3>Aït Benhaddou</h3>
+            <p>Un antico ksar (villaggio fortificato) famoso per l’architettura in terra e il paesaggio.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MUSICA -->
+    <section id="musica" class="anchor">
+      <div class="sectionHead">
+        <div>
+          <h2>Musica e canzoni</h2>
+          <p>Generi tradizionali e moderni: ritmi regionali, strumenti e scene contemporanee.</p>
+        </div>
+        <span class="badge">Sezione 5/5</span>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="cardBody">
+            <div class="cardTitle">
+              <h3>Ascolta un audio (demo)</h3>
+              <span class="badge">Audio</span>
+            </div>
+            <p>
+              Qui puoi mettere un audio libero o un estratto autorizzato. Per evitare copyright, usa audio “Public Domain” o “Creative Commons”.
+            </p>
+            <div style="margin-top:12px">
+              <audio controls style="width:100%">
+                <source src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Beethoven_Moonlight_1st_movement.ogg" type="audio/ogg">
+                Il tuo browser non supporta l’audio.
+              </audio>
+            </div>
+            <p style="margin-top:10px; font-size:13px; color:var(--muted)">
+              (Sostituisci questo audio con uno marocchino con licenza libera. Se vuoi, dimmi che tipo di canzone e te ne trovo 2-3 link “free”.)
+            </p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="cardBody">
+            <div class="cardTitle">
+              <h3>Playlist suggerita (testo)</h3>
+              <span class="badge">Idee</span>
+            </div>
+            <p>
+              • Musica Gnawa (tradizione spirituale e ritmo)<br>
+              • Chaabi (popolare e festivo)<br>
+              • Rai e fusion moderna<br>
+              • Andalusa (influenze storiche)
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footerGrid">
+      <div>
+        <b>Fonti consigliate (ufficiali / libere)</b><br>
+        <span>Immagini: Wikimedia Commons • Video: YouTube embed • Audio: Wikimedia / CC</span>
+      </div>
+      <div class="sources">
+        <a class="sourceLink" href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Wikimedia Commons</a>
+        <a class="sourceLink" href="https://www.youtube.com/" target="_blank" rel="noreferrer">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Highlight active section in navbar on scroll
+    const links = [...document.querySelectorAll('nav a')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+
+    const setActive = () => {
+      const y = window.scrollY + 110;
+      let current = sections[0].id;
+      for (const s of sections) {
+        if (s.offsetTop <= y) current = s.id;
+      }
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    };
+    window.addEventListener('scroll', setActive, {passive:true});
+    setActive();
+  </script>
+</body>
 </html>
