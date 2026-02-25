@@ -3,228 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Il Marocco - Progetto</title>
+<title>Il Marocco — Progetto</title>
 
 <style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI',sans-serif;
-}
-
 body{
-  background:#0f172a;
+  margin:0;
+  font-family:Arial, sans-serif;
   color:white;
-  scroll-behavior:smooth;
+  background-color:#111;
 }
 
-/* NAVBAR */
-nav{
-  position:fixed;
-  width:100%;
-  top:0;
-  background:rgba(0,0,0,0.8);
-  padding:15px;
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  z-index:1000;
-}
-
-nav a{
-  color:white;
-  text-decoration:none;
-  font-weight:600;
-  transition:0.3s;
-}
-
-nav a:hover{
-  color:#facc15;
-}
-
-/* HERO */
+/* ===== HERO ===== */
 .hero{
   height:100vh;
-  background:
-  linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
   url("https://upload.wikimedia.org/wikipedia/commons/9/9e/Jemaa_el-Fnaa_Marrakesh.jpg");
   background-size:cover;
   background-position:center;
   display:flex;
+  flex-direction:column;
   justify-content:center;
   align-items:center;
-  flex-direction:column;
   text-align:center;
 }
 
 .hero h1{
-  font-size:65px;
+  font-size:50px;
+  margin:0;
 }
 
 .hero p{
-  margin-top:20px;
-  font-size:22px;
+  font-size:20px;
   max-width:700px;
 }
 
 .btn{
-  margin-top:30px;
-  padding:14px 30px;
-  background:#dc2626;
+  margin-top:20px;
+  padding:12px 25px;
+  background:#e11d48;
   border:none;
   color:white;
   font-size:18px;
-  border-radius:8px;
   cursor:pointer;
-  transition:0.3s;
+  border-radius:6px;
 }
 
-.btn:hover{
-  background:#16a34a;
-}
-
-/* SECTIONS */
 section{
-  padding:120px 10%;
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
 }
 
 h2{
-  text-align:center;
-  margin-bottom:40px;
   color:#facc15;
-  font-size:35px;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
 }
 
 .card{
-  background:#1e293b;
-  border-radius:15px;
-  overflow:hidden;
-  transition:0.4s;
-}
-
-.card:hover{
-  transform:translateY(-10px);
-}
-
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-
-.card-content{
-  padding:20px;
+  margin-bottom:40px;
 }
 
 iframe{
   width:100%;
-  height:350px;
-  border:none;
-  border-radius:10px;
+  height:400px;
+  margin-top:15px;
 }
 
-/* FOOTER */
 footer{
-  background:black;
-  padding:40px;
   text-align:center;
+  padding:30px;
+  background:#000;
+  font-size:16px;
 }
-
 </style>
 </head>
 
 <body>
 
-<nav>
-  <a href="#cultura">Cultura</a>
-  <a href="#sport">Sport</a>
-  <a href="#politica">Politica</a>
-  <a href="#monumenti">Monumenti</a>
-  <a href="#musica">Musica</a>
-</nav>
-
+<!-- ===== HERO ===== -->
 <div class="hero">
   <h1>Il Marocco 🇲🇦</h1>
-  <p>Scopri cultura, sport, politica, monumenti e musica del Regno del Marocco.</p>
+  <p>Un viaggio attraverso la cultura, lo sport, la politica, i monumenti e la musica del Marocco.</p>
   <a href="#cultura"><button class="btn">Entrare nel sito</button></a>
 </div>
 
+<!-- ===== CULTURA ===== -->
 <section id="cultura">
   <h2>Cultura</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Moroccan_tea.jpg">
-      <div class="card-content">
-        Il tè alla menta rappresenta ospitalità e tradizione marocchina.
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Tagine.jpg">
-      <div class="card-content">
-        La cucina marocchina include couscous e tajine.
-      </div>
-    </div>
+  <div class="card">
+    <p>
+      La cultura marocchina è ricca e diversificata. Include tradizioni amazigh,
+      cucina tipica come il couscous e il tajine, e celebrazioni popolari.
+      Il tè alla menta è simbolo di ospitalità.
+    </p>
   </div>
 </section>
 
-<section id="sport">
+<!-- ===== SPORT ===== -->
+<section>
   <h2>Sport</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Stade_Moulay_Abdellah_Rabat.jpg">
-      <div class="card-content">
-        Il calcio è lo sport più popolare in Marocco.
-      </div>
-    </div>
+  <div class="card">
+    <p>
+      Il calcio è lo sport più popolare in Marocco. La Federazione Reale Marocchina
+      organizza competizioni nazionali e internazionali.
+    </p>
   </div>
 </section>
 
-<section id="politica">
+<!-- ===== POLITICA ===== -->
+<section>
   <h2>Politica</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Rabat_Parliament.jpg">
-      <div class="card-content">
-        Rabat è la capitale amministrativa del Marocco.
-      </div>
-    </div>
+  <div class="card">
+    <p>
+      Il Marocco è uno Stato del Nord Africa con capitale Rabat.
+      Le istituzioni ufficiali gestiscono servizi pubblici e amministrazione.
+    </p>
   </div>
 </section>
 
-<section id="monumenti">
+<!-- ===== MONUMENTI ===== -->
+<section>
   <h2>Monumenti Storici</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Hassan_II_Mosque_Casablanca.jpg">
-      <div class="card-content">
-        Moschea Hassan II a Casablanca.
-      </div>
-    </div>
+  <div class="card">
+    <p>
+      Il Marocco possiede monumenti famosi come la Moschea Hassan II,
+      la città blu di Chefchaouen e la piazza Jemaa el-Fna a Marrakech.
+    </p>
   </div>
 </section>
 
-<section id="musica">
+<!-- ===== MUSICA ===== -->
+<section>
   <h2>Musica Marocchina</h2>
 
   <div class="card">
+    <h3>Ahwach — Salam O Aalaykom</h3>
     <iframe src="https://www.youtube.com/embed/wNxvMqIBOY4" allowfullscreen></iframe>
   </div>
 
   <div class="card">
+    <h3>Gnawa — Festival</h3>
     <iframe src="https://www.youtube.com/embed/WM31Yudjk9Q" allowfullscreen></iframe>
   </div>
 
   <div class="card">
+    <h3>Asma Lmnawar — Andou Zine</h3>
     <iframe src="https://www.youtube.com/embed/kyxGsD-eP1I" allowfullscreen></iframe>
   </div>
 
