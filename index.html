@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Marocco — Sito Ufficiale (Progetto)</title>
+  <title>Il Marocco — Sport, Cultura, Politica, Monumenti, Musica</title>
+
   <style>
     :root{
       --bg:#0b1220;
-      --card:#111a2e;
-      --muted:#9fb0d0;
+      --card:#121c33;
       --text:#eaf0ff;
+      --muted:#a7b6d6;
       --accent:#38bdf8;
       --accent2:#22c55e;
       --border:rgba(255,255,255,.10);
@@ -20,43 +21,38 @@
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 900px at 20% 10%, rgba(56,189,248,.25), transparent 60%),
-                  radial-gradient(1000px 800px at 80% 20%, rgba(34,197,94,.18), transparent 55%),
-                  linear-gradient(180deg, #070b14, var(--bg));
+      background:
+        radial-gradient(1200px 900px at 20% 10%, rgba(56,189,248,.22), transparent 60%),
+        radial-gradient(1000px 800px at 80% 20%, rgba(34,197,94,.16), transparent 55%),
+        linear-gradient(180deg, #070b14, var(--bg));
       color:var(--text);
-      line-height:1.6;
+      line-height:1.65;
     }
     a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
-    .container{width:min(1100px, 92%); margin:0 auto}
+    .container{width:min(1120px, 92%); margin:0 auto}
 
-    /* Top bar */
     header{
       position:sticky; top:0; z-index:50;
-      background: rgba(7,11,20,.65);
+      background: rgba(7,11,20,.70);
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--border);
     }
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:14px;
+      padding:14px 0; gap:12px;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:800;
-      letter-spacing:.2px;
-    }
+    .brand{display:flex; gap:12px; align-items:center}
     .logo{
-      width:38px; height:38px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(56,189,248,.9), rgba(34,197,94,.9));
+      width:40px; height:40px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(34,197,94,.90));
+      display:grid; place-items:center; color:#07101f; font-weight:900;
       box-shadow: var(--shadow);
-      display:grid; place-items:center;
-      font-weight:900; color:#07101f;
     }
-    nav{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
-    }
+    .brandTitle{font-weight:900; letter-spacing:.2px}
+    .brandSub{font-size:12px; color:var(--muted)}
+
+    nav{display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end}
     .pill{
       padding:8px 12px;
       border:1px solid var(--border);
@@ -69,39 +65,29 @@
     .pill:hover{transform:translateY(-1px); border-color: rgba(56,189,248,.35); color:var(--text)}
     .pill.active{border-color: rgba(56,189,248,.55); color:var(--text)}
 
-    /* Hero */
+    main{padding:22px 0 10px}
     .hero{
-      padding:34px 0 10px;
-    }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width:900px){
-      .heroGrid{grid-template-columns:1fr}
-      nav{justify-content:flex-start}
-    }
-    .heroCard{
       border:1px solid var(--border);
       background: rgba(255,255,255,.04);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:0;
     }
-    .heroMain{padding:22px}
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} nav{justify-content:flex-start} }
+
+    .heroLeft{padding:22px}
     .kicker{
       display:inline-flex; align-items:center; gap:8px;
-      color:var(--muted);
-      font-size:14px;
+      font-size:13px; color:var(--muted);
       border:1px solid var(--border);
       background: rgba(255,255,255,.03);
-      padding:7px 10px;
-      border-radius:999px;
+      padding:7px 10px; border-radius:999px;
     }
     h1{margin:14px 0 10px; line-height:1.1; font-size:38px}
-    .lead{color:var(--muted); margin:0 0 14px}
+    .lead{margin:0; color:var(--muted)}
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
     .btn{
       padding:10px 14px;
@@ -109,7 +95,7 @@
       border:1px solid var(--border);
       background: rgba(255,255,255,.06);
       color:var(--text);
-      font-weight:600;
+      font-weight:700;
       cursor:pointer;
       transition:.2s;
     }
@@ -118,21 +104,23 @@
       background: linear-gradient(135deg, rgba(56,189,248,.35), rgba(34,197,94,.18));
     }
     .btn:hover{transform:translateY(-1px)}
-    .heroMedia{
-      height:100%;
+
+    .heroRight{
+      border-left:1px solid var(--border);
       display:grid;
       grid-template-rows: 1fr auto;
     }
+    @media (max-width:900px){ .heroRight{border-left:none; border-top:1px solid var(--border)} }
     .heroImg{
-      min-height:220px;
+      min-height:240px;
       background:
-        linear-gradient(180deg, rgba(7,11,20,.1), rgba(7,11,20,.65)),
+        linear-gradient(180deg, rgba(7,11,20,.1), rgba(7,11,20,.7)),
         url("https://upload.wikimedia.org/wikipedia/commons/3/3a/Marrakech_marketplace.jpg");
       background-size:cover;
       background-position:center;
       border-bottom:1px solid var(--border);
     }
-    .heroStats{
+    .stats{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:10px;
@@ -144,23 +132,26 @@
       background: rgba(255,255,255,.03);
       padding:12px;
     }
-    .stat b{display:block; font-size:16px}
+    .stat b{display:block}
     .stat span{color:var(--muted); font-size:13px}
 
-    /* Sections */
     section{padding:26px 0}
+    .anchor{scroll-margin-top:88px}
     .sectionHead{
       display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
       margin-bottom:14px;
     }
     .sectionHead h2{margin:0; font-size:26px}
-    .sectionHead p{margin:0; color:var(--muted); max-width:60ch}
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
+    .sectionHead p{margin:0; color:var(--muted); max-width:70ch}
+    .badge{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--border);
+      padding:6px 10px; border-radius:999px;
+      background: rgba(255,255,255,.03);
+      white-space:nowrap;
     }
+
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:14px}
     .card{
       grid-column: span 6;
       border:1px solid var(--border);
@@ -171,109 +162,88 @@
     }
     .card.small{grid-column: span 4}
     .card.full{grid-column: span 12}
-    @media (max-width:900px){
-      .card, .card.small{grid-column: span 12}
-    }
-    .cardBody{padding:16px}
-    .cardTitle{display:flex; align-items:center; justify-content:space-between; gap:10px}
-    .badge{
-      font-size:12px; color:var(--muted);
-      border:1px solid var(--border);
-      padding:6px 10px; border-radius:999px;
-      background: rgba(255,255,255,.03);
-      white-space:nowrap;
-    }
-    .cardBody h3{margin:0 0 6px; font-size:18px}
-    .cardBody p{margin:0; color:var(--muted)}
+    @media (max-width:900px){ .card, .card.small{grid-column: span 12} }
+
     .media{
       width:100%;
       aspect-ratio: 16/9;
-      border-bottom:1px solid var(--border);
       background:#0a0f1f;
+      border-bottom:1px solid var(--border);
     }
     iframe{width:100%; height:100%; border:0}
+    .thumb{width:100%; height:auto; border-bottom:1px solid var(--border)}
+    .cardBody{padding:16px}
+    .cardBody h3{margin:0 0 6px; font-size:18px}
+    .cardBody p{margin:0; color:var(--muted)}
+    .note{margin-top:10px; font-size:13px; color:var(--muted)}
 
-    /* Footer */
+    .sources{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding:16px;
+    }
+    .sources ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .sources a{color:var(--accent); text-decoration:underline}
+
     footer{
-      padding:26px 0 40px;
+      padding:18px 0 40px;
       border-top:1px solid var(--border);
       color:var(--muted);
       font-size:14px;
     }
-    .footerGrid{
-      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;
-    }
-    .sources{display:flex; gap:10px; flex-wrap:wrap}
-    .sourceLink{
-      border:1px solid var(--border);
-      padding:8px 10px;
-      border-radius:999px;
-      background: rgba(255,255,255,.03);
-    }
-
-    /* Smooth scroll offset for sticky header */
-    .anchor{scroll-margin-top:80px}
+    .footerRow{display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center}
   </style>
 </head>
+
 <body>
   <header>
     <div class="container topbar">
       <div class="brand">
         <div class="logo">MA</div>
         <div>
-          <div style="font-size:15px; opacity:.95">Progetto: <span style="color:var(--accent)">Marocco</span></div>
-          <div style="font-size:12px; color:var(--muted)">Sport • Cultura • Politica • Monumenti • Musica</div>
+          <div class="brandTitle">Il Marocco</div>
+          <div class="brandSub">Sport • Cultura • Politica • Monumenti • Musica</div>
         </div>
       </div>
+
       <nav id="nav">
         <a class="pill" href="#sport">Sport</a>
         <a class="pill" href="#cultura">Cultura</a>
         <a class="pill" href="#politica">Politica</a>
         <a class="pill" href="#monumenti">Monumenti</a>
         <a class="pill" href="#musica">Musica</a>
+        <a class="pill" href="#fonti">Fonti</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
     <section class="hero">
-      <div class="heroGrid">
-        <div class="heroCard heroMain">
-          <div class="kicker">🇲🇦 Presentazione ufficiale (progetto scolastico)</div>
-          <h1>Marocco: identità, storia e vita contemporanea</h1>
-          <p class="lead">
-            Un sito in lingua italiana che esplora il Marocco attraverso <b>5 sezioni</b>:
-            sport, cultura, politica, monumenti storici e musica.
-          </p>
-          <div class="ctaRow">
-            <button class="btn primary" onclick="document.querySelector('#cultura').scrollIntoView({behavior:'smooth'})">
-              Inizia dalla Cultura
-            </button>
-            <button class="btn" onclick="document.querySelector('#monumenti').scrollIntoView({behavior:'smooth'})">
-              Vai ai Monumenti
-            </button>
-          </div>
-          <div style="margin-top:14px; color:var(--muted); font-size:13px">
-            Suggerimento: puoi sostituire testi, immagini, video e audio con contenuti più specifici.
-          </div>
+      <div class="heroLeft">
+        <div class="kicker">🇲🇦 Progetto scolastico in lingua italiana</div>
+        <h1>Marocco: identità, storia e cultura contemporanea</h1>
+        <p class="lead">
+          Questo sito presenta il Marocco attraverso cinque temi principali: <b>sport</b>, <b>cultura</b>,
+          <b>politica</b>, <b>monumenti storici</b> e <b>musica</b>. Contenuti con immagini e fonti ufficiali.
+        </p>
+
+        <div class="ctaRow">
+          <button class="btn primary" onclick="document.querySelector('#cultura').scrollIntoView({behavior:'smooth'})">Inizia dalla Cultura</button>
+          <button class="btn" onclick="document.querySelector('#musica').scrollIntoView({behavior:'smooth'})">Vai alla Musica</button>
         </div>
 
-        <div class="heroCard heroMedia">
-          <div class="heroImg" aria-label="Immagine di Marrakech"></div>
-          <div class="heroStats">
-            <div class="stat">
-              <b>Capitale</b>
-              <span>Rabat</span>
-            </div>
-            <div class="stat">
-              <b>Lingue</b>
-              <span>Arabo, Amazigh (tamazight)</span>
-            </div>
-            <div class="stat">
-              <b>Geografia</b>
-              <span>Atlantico, Mediterraneo, Atlante, Sahara</span>
-            </div>
-          </div>
+        <p class="note">
+          Suggerimento: puoi aggiungere 2–3 righe personali in ogni sezione (cosa ti piace del Marocco, perché lo hai scelto).
+        </p>
+      </div>
+
+      <div class="heroRight">
+        <div class="heroImg" aria-label="Marrakech"></div>
+        <div class="stats">
+          <div class="stat"><b>Capitale</b><span>Rabat</span></div>
+          <div class="stat"><b>Lingue</b><span>Arabo e Amazigh</span></div>
+          <div class="stat"><b>Territorio</b><span>Atlantico, Mediterraneo, Atlante, Sahara</span></div>
         </div>
       </div>
     </section>
@@ -283,42 +253,32 @@
       <div class="sectionHead">
         <div>
           <h2>Sport</h2>
-          <p>Il calcio è lo sport più seguito, ma esistono anche discipline tradizionali e moderne.</p>
+          <p>Il calcio è lo sport più seguito, con una forte passione popolare e grandi risultati internazionali.</p>
         </div>
         <span class="badge">Sezione 1/5</span>
       </div>
 
       <div class="grid">
         <article class="card">
-          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/8/84/Stade_Moulay_Abdellah_Rabat.jpg') center/cover;"></div>
+          <img class="thumb" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Stade_Moulay_Abdellah_Rabat.jpg" alt="Stadio a Rabat">
           <div class="cardBody">
-            <div class="cardTitle">
-              <h3>Calcio e grandi eventi</h3>
-              <span class="badge">Panoramica</span>
-            </div>
+            <h3>Calcio e tifoseria</h3>
             <p>
-              Il Marocco ha una forte cultura calcistica, con stadi importanti e una grande partecipazione dei tifosi.
-              Le competizioni locali e internazionali attirano un pubblico molto ampio.
+              Il Marocco ha una tradizione calcistica molto forte: club, stadi e tifosi rendono le partite un evento sociale.
+              Lo sport è anche un elemento di identità nazionale.
             </p>
+            <p class="note">Immagine: Wikimedia Commons (uso libero)</p>
           </div>
         </article>
 
         <article class="card">
-          <div class="media">
-            <iframe
-              src="https://www.youtube.com/embed/9bZkp7q19f0"
-              title="Video incorporato (sostituisci con un video sul Marocco)"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
           <div class="cardBody">
-            <div class="cardTitle">
-              <h3>Video (da personalizzare)</h3>
-              <span class="badge">YouTube Embed</span>
-            </div>
+            <h3>Federazione e organizzazione</h3>
             <p>
-              Qui puoi inserire un video ufficiale (es. turismo, sport, cultura). Cambia il link “embed” con un video sul Marocco.
+              La gestione ufficiale del calcio è legata alla Federazione (FRMF). Per un progetto “ufficiale” puoi citare le
+              pagine FIFA/FRMF nelle fonti.
             </p>
+            <p class="note">Vedi Fonti in basso (FIFA / FRMF).</p>
           </div>
         </article>
       </div>
@@ -329,33 +289,36 @@
       <div class="sectionHead">
         <div>
           <h2>Cultura</h2>
-          <p>Tradizioni, artigianato, cucina, ospitalità e diversità culturale tra città e regioni.</p>
+          <p>Ospitalità, artigianato, cucina, tradizioni urbane e amazigh: una cultura ricca e diversificata.</p>
         </div>
         <span class="badge">Sezione 2/5</span>
       </div>
 
       <div class="grid">
         <article class="card small">
-          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/1/1b/Moroccan_tea.jpg') center/cover;"></div>
+          <img class="thumb" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Moroccan_tea.jpg" alt="Tè alla menta marocchino">
           <div class="cardBody">
-            <h3>Ospitalità e tè alla menta</h3>
-            <p>Il tè alla menta è un simbolo di accoglienza e socialità.</p>
+            <h3>Tè alla menta e ospitalità</h3>
+            <p>Simbolo di accoglienza: il tè alla menta accompagna visite, feste e momenti di condivisione.</p>
+            <p class="note">Immagine: Wikimedia Commons</p>
           </div>
         </article>
 
         <article class="card small">
-          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/0/0a/Tagine.jpg') center/cover;"></div>
+          <img class="thumb" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Tagine.jpg" alt="Tajine marocchino">
           <div class="cardBody">
             <h3>Cucina</h3>
-            <p>Piatti come tajine e couscous rappresentano identità e convivialità.</p>
+            <p>Tajine, couscous, spezie e dolci: la cucina marocchina unisce tradizione e varietà regionale.</p>
+            <p class="note">Immagine: Wikimedia Commons</p>
           </div>
         </article>
 
         <article class="card small">
-          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/9/9f/Fes_medina.jpg') center/cover;"></div>
+          <img class="thumb" src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Fes_medina.jpg" alt="Medina di Fès">
           <div class="cardBody">
             <h3>Medine e artigianato</h3>
-            <p>Le medine storiche sono ricche di souk, mosaici, legno intagliato e pelle.</p>
+            <p>Le medine storiche sono famose per souk, mosaici (zellige), lavorazione del legno e della pelle.</p>
+            <p class="note">Immagine: Wikimedia Commons</p>
           </div>
         </article>
       </div>
@@ -366,7 +329,7 @@
       <div class="sectionHead">
         <div>
           <h2>Politica</h2>
-          <p>Informazioni generali e neutre: istituzioni, capitale amministrativa e funzioni principali.</p>
+          <p>Sezione neutrale e scolastica: istituzioni, capitale amministrativa e portali ufficiali.</p>
         </div>
         <span class="badge">Sezione 3/5</span>
       </div>
@@ -374,17 +337,13 @@
       <div class="grid">
         <article class="card full">
           <div class="cardBody">
-            <div class="cardTitle">
-              <h3>Struttura istituzionale (sintesi)</h3>
-              <span class="badge">Neutrale</span>
-            </div>
+            <h3>Istituzioni e servizi</h3>
             <p>
-              Il Marocco è uno Stato del Nord Africa con istituzioni nazionali e locali.
-              Rabat è la capitale amministrativa e politica. Questa sezione può includere:
-              Parlamento, governo, regioni e principali servizi pubblici.
+              Rabat è la capitale politica e amministrativa. Per presentare informazioni “ufficiali” nel tuo progetto, puoi
+              citare i portali nazionali che raccolgono notizie, servizi e informazioni istituzionali.
             </p>
-            <p style="margin-top:10px">
-              ✅ Consiglio per la prof: aggiungi 3–5 righe su “come lo Stato organizza sanità, educazione e infrastrutture”.
+            <p class="note">
+              Suggerimento per la prof: scrivi 4 righe su “servizi pubblici digitali, informazioni governative e portali ufficiali”.
             </p>
           </div>
         </article>
@@ -396,25 +355,38 @@
       <div class="sectionHead">
         <div>
           <h2>Monumenti e luoghi storici</h2>
-          <p>Patrimonio architettonico e siti celebri: città imperiali, moschee, kasbah e piazze storiche.</p>
+          <p>Siti celebri e patrimonio: architettura, città storiche e luoghi riconosciuti a livello internazionale.</p>
         </div>
         <span class="badge">Sezione 4/5</span>
       </div>
 
       <div class="grid">
         <article class="card">
-          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/5/5b/Hassan_II_Mosque_Casablanca.jpg') center/cover;"></div>
+          <img class="thumb" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Hassan_II_Mosque_Casablanca.jpg" alt="Moschea Hassan II - Casablanca">
           <div class="cardBody">
             <h3>Moschea Hassan II (Casablanca)</h3>
-            <p>Una delle opere architettoniche più conosciute, affacciata sull’oceano Atlantico.</p>
+            <p>Uno dei simboli architettonici più noti del Marocco, affacciato sull’Oceano Atlantico.</p>
+            <p class="note">Immagine: Wikimedia Commons</p>
           </div>
         </article>
 
         <article class="card">
-          <div class="media" style="background:url('https://upload.wikimedia.org/wikipedia/commons/0/0c/Ait_Benhaddou_2017.jpg') center/cover;"></div>
+          <img class="thumb" src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Ait_Benhaddou_2017.jpg" alt="Aït Benhaddou">
           <div class="cardBody">
             <h3>Aït Benhaddou</h3>
-            <p>Un antico ksar (villaggio fortificato) famoso per l’architettura in terra e il paesaggio.</p>
+            <p>Antico ksar (villaggio fortificato) famoso per l’architettura in terra e il paesaggio.</p>
+            <p class="note">Immagine: Wikimedia Commons</p>
+          </div>
+        </article>
+
+        <article class="card full">
+          <img class="thumb" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Chefchaouen_Morocco.jpg" alt="Chefchaouen (città blu)">
+          <div class="cardBody">
+            <h3>Chefchaouen (la “città blu”)</h3>
+            <p>
+              Conosciuta per i vicoli dipinti di blu, è una meta famosa per fotografia e turismo culturale nel nord del Paese.
+            </p>
+            <p class="note">Immagine: Wikimedia Commons</p>
           </div>
         </article>
       </div>
@@ -424,78 +396,132 @@
     <section id="musica" class="anchor">
       <div class="sectionHead">
         <div>
-          <h2>Musica e canzoni</h2>
-          <p>Generi tradizionali e moderni: ritmi regionali, strumenti e scene contemporanee.</p>
+          <h2>Musica marocchina</h2>
+          <p>Tre esempi: Ahwach (tradizione amazigh), Gnawa (patrimonio culturale) e Chaabi moderno.</p>
         </div>
         <span class="badge">Sezione 5/5</span>
       </div>
 
       <div class="grid">
-        <article class="card">
+        <!-- Ahwach -->
+        <article class="card full">
           <div class="cardBody">
-            <div class="cardTitle">
-              <h3>Ascolta un audio (demo)</h3>
-              <span class="badge">Audio</span>
-            </div>
+            <h3>Ahwach Ntfarkhin — “Salam O Aalaykom”</h3>
             <p>
-              Qui puoi mettere un audio libero o un estratto autorizzato. Per evitare copyright, usa audio “Public Domain” o “Creative Commons”.
+              L’<strong>Ahwach</strong> è un’espressione artistica collettiva amazigh (musica, canto e danza) tipica di diverse
+              aree del Marocco. Rappresenta festa, comunità e identità culturale locale.
             </p>
-            <div style="margin-top:12px">
-              <audio controls style="width:100%">
-                <source src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Beethoven_Moonlight_1st_movement.ogg" type="audio/ogg">
-                Il tuo browser non supporta l’audio.
-              </audio>
-            </div>
-            <p style="margin-top:10px; font-size:13px; color:var(--muted)">
-              (Sostituisci questo audio con uno marocchino con licenza libera. Se vuoi, dimmi che tipo di canzone e te ne trovo 2-3 link “free”.)
-            </p>
+          </div>
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/wNxvMqIBOY4"
+              title="Ahwach Ntfarkhin — Salam O Aalaykom"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="cardBody">
+            <p class="note">Fonte: YouTube (link fornito).</p>
           </div>
         </article>
 
-        <article class="card">
+        <!-- Gnawa -->
+        <article class="card full">
           <div class="cardBody">
-            <div class="cardTitle">
-              <h3>Playlist suggerita (testo)</h3>
-              <span class="badge">Idee</span>
-            </div>
+            <h3>Gnawa — performance tradizionale</h3>
             <p>
-              • Musica Gnawa (tradizione spirituale e ritmo)<br>
-              • Chaabi (popolare e festivo)<br>
-              • Rai e fusion moderna<br>
-              • Andalusa (influenze storiche)
+              La cultura <strong>Gnawa</strong> è riconosciuta come parte dell’identità culturale marocchina e legata a musica,
+              rituali, percussioni e canto collettivo.
             </p>
+          </div>
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/WM31Yudjk9Q"
+              title="Gnawa — video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="cardBody">
+            <p class="note">Fonte: YouTube (link fornito).</p>
+          </div>
+        </article>
+
+        <!-- Chaabi / Asma Lmnawar -->
+        <article class="card full">
+          <div class="cardBody">
+            <h3>Chaabi — Asma Lmnawar (أسماء لمنور)</h3>
+            <p>
+              Il <strong>Chaabi</strong> è un genere popolare molto diffuso nelle feste e nella vita quotidiana.
+              Asma Lmnawar è una delle artiste più conosciute della scena marocchina contemporanea.
+            </p>
+          </div>
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/kyxGsD-eP1I"
+              title="Asma Lmnawar — Andou Zine"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="cardBody">
+            <p class="note">Fonte: YouTube (link fornito).</p>
           </div>
         </article>
       </div>
     </section>
+
+    <!-- FONTI -->
+    <section id="fonti" class="anchor">
+      <div class="sectionHead">
+        <div>
+          <h2>Fonti (ufficiali / affidabili)</h2>
+          <p>Per rendere il progetto più “ufficiale”, qui ci sono riferimenti utili per sport, cultura, patrimonio e istituzioni.</p>
+        </div>
+        <span class="badge">Riferimenti</span>
+      </div>
+
+      <div class="sources">
+        <b>Link consigliati:</b>
+        <ul>
+          <li>Ufficio Nazionale del Turismo (ONMT): <a href="https://onmt.com/" target="_blank" rel="noreferrer">onmt.com</a></li>
+          <li>Portale nazionale: <a href="https://maroc.ma/" target="_blank" rel="noreferrer">maroc.ma</a></li>
+          <li>Portale del Governo (servizi/informazioni): <a href="https://www.cg.gov.ma/en/node/11777" target="_blank" rel="noreferrer">cg.gov.ma</a></li>
+          <li>UNESCO — Marocco (patrimonio): <a href="https://whc.unesco.org/en/statesparties/ma" target="_blank" rel="noreferrer">whc.unesco.org</a></li>
+          <li>UNESCO ICH — Gnawa: <a href="https://ich.unesco.org/en/RL/gnawa-01170" target="_blank" rel="noreferrer">ich.unesco.org (Gnawa)</a></li>
+          <li>UNESCO ICH — Jemaa el-Fna: <a href="https://ich.unesco.org/en/RL/00014" target="_blank" rel="noreferrer">ich.unesco.org (Jemaa el-Fna)</a></li>
+          <li>FIFA — Federazione (FRMF): <a href="https://inside.fifa.com/fr/associations/MAR/organisation" target="_blank" rel="noreferrer">inside.fifa.com</a></li>
+        </ul>
+        <p class="note">
+          Immagini usate: Wikimedia Commons (licenze libere).
+        </p>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <div class="container footerGrid">
-      <div>
-        <b>Fonti consigliate (ufficiali / libere)</b><br>
-        <span>Immagini: Wikimedia Commons • Video: YouTube embed • Audio: Wikimedia / CC</span>
-      </div>
-      <div class="sources">
-        <a class="sourceLink" href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Wikimedia Commons</a>
-        <a class="sourceLink" href="https://www.youtube.com/" target="_blank" rel="noreferrer">YouTube</a>
-      </div>
+    <div class="container footerRow">
+      <div>© <span id="year"></span> — Sito sul Marocco (Progetto scolastico)</div>
+      <div><b>by Rania</b></div>
     </div>
   </footer>
 
   <script>
-    // Highlight active section in navbar on scroll
-    const links = [...document.querySelectorAll('nav a')];
-    const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    const setActive = () => {
-      const y = window.scrollY + 110;
-      let current = sections[0].id;
-      for (const s of sections) {
-        if (s.offsetTop <= y) current = s.id;
+    // active nav on scroll
+    const links = [...document.querySelectorAll('nav a.pill')];
+    const targets = links
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+
+    function setActive(){
+      const y = window.scrollY + 120;
+      let current = targets[0]?.id || "";
+      for(const s of targets){
+        if(s.offsetTop <= y) current = s.id;
       }
       links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
-    };
+    }
     window.addEventListener('scroll', setActive, {passive:true});
     setActive();
   </script>
