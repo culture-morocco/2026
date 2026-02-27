@@ -1,69 +1,176 @@
-<!DOCTYPE html>
+<!-- contact.html -->
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EduMaster — Contact</title>
+  <title>EduPro Academy | Contatti</title>
+  <meta name="description" content="Contatta EduPro Academy: scrivici per informazioni su corsi, piani e supporto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <div class="container topbar">
-      <div class="brand">
-        <div class="logo">E</div>
-        <div>
-          <div>EduMaster Academy</div>
-          <div style="font-size:12px;color:var(--muted);font-weight:600">Contatti</div>
-        </div>
-      </div>
-      <nav>
-        <a class="pill" href="index.html">Home</a>
-        <a class="pill" href="courses.html">Courses</a>
-        <a class="pill" href="teachers.html">Teachers</a>
-        <a class="pill" href="pricing.html">Pricing</a>
-        <a class="pill active" href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navigazione principale">
+      <a class="brand" href="index.html" aria-label="EduPro Academy, Home">
+        <span class="brand-mark" aria-hidden="true">EA</span>
+        <span class="brand-text">EduPro Academy</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="courses.html">Corsi</a></li>
+        <li><a class="nav-link" href="teachers.html">Docenti</a></li>
+        <li><a class="nav-link" href="pricing.html">Prezzi</a></li>
+        <li><a class="nav-link is-active" href="contact.html" aria-current="page">Contatti</a></li>
+      </ul>
+
+      <a class="nav-cta" href="pricing.html">Vedi prezzi</a>
+    </nav>
   </header>
 
-  <main class="container">
-    <section class="section">
-      <div class="sectionHead">
-        <div>
-          <h2>Contattaci</h2>
-          <p>Modulo semplice (solo HTML). Puoi aggiungere il tuo email vero.</p>
-        </div>
-        <span class="badge">Pagina 5/5</span>
-      </div>
-
-      <div class="form">
-        <div class="field">
-          <label for="name">Nome</label>
-          <input id="name" type="text" placeholder="Inserisci il tuo nome" />
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" type="email" placeholder="esempio@mail.com" />
-        </div>
-
-        <div class="field">
-          <label for="msg">Messaggio</label>
-          <textarea id="msg" placeholder="Scrivi qui..."></textarea>
-        </div>
-
-        <button class="btn primary" type="button">Invia (demo)</button>
-        <p class="hint" style="margin-top:10px">
-          Nota: questo è un progetto statico. Il bottone è “demo” (senza back-end).
+  <main id="contenuto">
+    <section class="page-hero">
+      <div class="container">
+        <p class="kicker">Contatti</p>
+        <h1>Parliamo del tuo percorso</h1>
+        <p>
+          Hai domande su corsi, piani o percorsi consigliati? Compila il form: ti risponderemo al più presto.
         </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <section class="form-card" aria-label="Modulo di contatto">
+          <h2>Invia un messaggio</h2>
+          <p class="muted">Nessun backend richiesto: questo è un form front-end pronto per l’integrazione.</p>
+
+          <form action="#" method="post">
+            <div class="form-row">
+              <div class="field">
+                <label for="nome">Nome</label>
+                <input id="nome" name="nome" type="text" placeholder="Es. Giulia" required />
+              </div>
+
+              <div class="field">
+                <label for="cognome">Cognome</label>
+                <input id="cognome" name="cognome" type="text" placeholder="Es. Rossi" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="es. giulia@email.com" required />
+              </div>
+
+              <div class="field">
+                <label for="tema">Tema</label>
+                <select id="tema" name="tema" required>
+                  <option value="" selected disabled>Seleziona un argomento</option>
+                  <option value="corsi">Informazioni sui corsi</option>
+                  <option value="prezzi">Piani e prezzi</option>
+                  <option value="supporto">Supporto</option>
+                  <option value="aziende">Business / Team</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="messaggio">Messaggio</label>
+              <textarea id="messaggio" name="messaggio" placeholder="Scrivi qui la tua richiesta..." required></textarea>
+              <p class="helper">Rispondiamo generalmente entro 24-48 ore lavorative.</p>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Invia messaggio</button>
+          </form>
+        </section>
+
+        <aside class="info-card" aria-label="Informazioni di contatto">
+          <h2>Info utili</h2>
+          <p class="muted">
+            Preferisci un contatto diretto? Ecco i riferimenti e alcune informazioni rapide.
+          </p>
+
+          <div class="info-block">
+            <h3>Email</h3>
+            <p>supporto@eduproacademy.example</p>
+          </div>
+
+          <div class="info-block" id="orari">
+            <h3>Orari</h3>
+            <p>Lun–Ven: 09:00–18:00</p>
+          </div>
+
+          <div class="info-block" id="faq">
+            <h3>FAQ rapide</h3>
+            <p class="muted">
+              • Puoi cambiare piano quando vuoi<br />
+              • Accesso da qualsiasi dispositivo<br />
+              • Certificato a fine corso
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h3>Nota</h3>
+            <p class="muted">
+              Questo progetto è “solo front-end”. Per l’invio reale del form, collega un servizio o un backend.
+            </p>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container footerRow">
-      <div>© 2026 EduMaster Academy — Progetto scolastico</div>
-      <div><b>by Rania</b></div>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand brand--footer">
+          <span class="brand-mark" aria-hidden="true">EA</span>
+          <span class="brand-text">EduPro Academy</span>
+        </div>
+        <p class="muted">Formazione moderna per crescere con metodo, pratica e supporto.</p>
+      </div>
+
+      <div class="footer-cols" role="list">
+        <div class="footer-col" role="listitem">
+          <h3>Academy</h3>
+          <ul role="list">
+            <li><a href="courses.html">Corsi</a></li>
+            <li><a href="teachers.html">Docenti</a></li>
+            <li><a href="pricing.html">Prezzi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col" role="listitem">
+          <h3>Supporto</h3>
+          <ul role="list">
+            <li><a href="contact.html">Contatti</a></li>
+            <li><a href="contact.html#faq">FAQ</a></li>
+            <li><a href="contact.html#orari">Orari</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col" role="listitem">
+          <h3>Legale</h3>
+          <ul role="list">
+            <li><a href="#" aria-label="Termini di servizio (placeholder)">Termini</a></li>
+            <li><a href="#" aria-label="Privacy policy (placeholder)">Privacy</a></li>
+            <li><a href="#" aria-label="Cookie policy (placeholder)">Cookie</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p class="muted">© <span>2026</span> EduPro Academy. Tutti i diritti riservati.</p>
+      <p class="muted">Design: HTML5 + CSS3</p>
     </div>
   </footer>
 </body>
