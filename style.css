@@ -824,26 +824,52 @@ textarea{ min-height: 140px; resize: vertical; }
   .footer-bottom{ flex-direction: column; }
 }
 
-/* ===== Small utility ===== */
-.hr{
-  height: 1px;
-  background: rgba(255,255,255,.10);
-  border: 0;
-  margin: 1.25rem 0;
+/* ===== PREMIUM TEACHERS SECTION ===== */
+
+.card {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .teacher-img {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 20px;
-  border: 4px solid rgba(255,255,255,0.25);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 25px;
+  transform: translateY(-30px);
+
+  border: 4px solid transparent;
+  background: linear-gradient(#111, #111) padding-box,
+              linear-gradient(135deg, #00c6ff, #0072ff) border-box;
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.6),
+    0 0 50px rgba(0,150,255,0.3);
+
+  transition: all 0.4s ease;
 }
 
 .card:hover .teacher-img {
-  transform: scale(1.08);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+  transform: translateY(-30px) scale(1.12);
+  box-shadow:
+    0 35px 80px rgba(0,0,0,0.8),
+    0 0 70px rgba(0,150,255,0.6);
+}
+
+.card:hover {
+  transform: translateY(-14px) scale(1.04);
+  box-shadow: 0 35px 90px rgba(0,0,0,0.75);
 }
