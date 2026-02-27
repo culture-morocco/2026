@@ -1,24 +1,19 @@
-/* ===============================
-   EduPro Academy - Smart UI Fix
-   Clean - Organized - Animated
-================================== */
+/* =====================================
+   EduPro Academy - Smart Clean UI
+   Stable Version - Responsive - Animated
+===================================== */
 
 :root {
-  --bg-main: #0f172a;
-  --bg-gradient-1: #1e1b4b;
-  --bg-gradient-2: #0f172a;
-
+  --bg-dark: #0f172a;
+  --bg-mid: #1e293b;
   --primary: #6366f1;
   --accent: #ec4899;
   --cyan: #06b6d4;
-
   --text-main: #ffffff;
   --text-soft: #cbd5e1;
-
-  --glass: rgba(255,255,255,0.07);
-  --border: rgba(255,255,255,0.15);
-
-  --radius: 16px;
+  --glass: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.12);
+  --radius: 14px;
   --transition: 0.3s ease;
 }
 
@@ -29,15 +24,12 @@
   box-sizing: border-box;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
   font-family: "Inter", sans-serif;
   color: var(--text-main);
-  background: linear-gradient(-45deg,
-    var(--bg-main),
-    var(--bg-gradient-1),
-    var(--bg-gradient-2),
-    #1e293b
-  );
+  background: linear-gradient(-45deg, #0f172a, #1e1b4b, #0f172a, #1e293b);
   background-size: 400% 400%;
   animation: bgMove 15s ease infinite;
   line-height: 1.6;
@@ -57,10 +49,11 @@ body {
   margin: auto;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
+
 .site-header {
   backdrop-filter: blur(12px);
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(15, 23, 42, 0.7);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
@@ -71,7 +64,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 18px 0;
 }
 
 .brand-text {
@@ -97,7 +90,7 @@ body {
 }
 
 .nav-link:hover {
-  color: white;
+  color: var(--text-main);
 }
 
 .nav-link::after {
@@ -116,7 +109,8 @@ body {
   width: 100%;
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
 .hero {
   padding: 120px 0;
   text-align: center;
@@ -137,10 +131,11 @@ body {
   margin-bottom: 30px;
 }
 
-/* BUTTON */
+/* ================= BUTTONS ================= */
+
 .btn {
   padding: 14px 28px;
-  border-radius: 50px;
+  border-radius: 40px;
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition);
@@ -150,25 +145,27 @@ body {
 .btn-primary {
   background: linear-gradient(90deg, var(--primary), var(--accent));
   color: white;
-  box-shadow: 0 0 25px rgba(99,102,241,0.5);
+  box-shadow: 0 0 20px rgba(99,102,241,0.5);
 }
 
 .btn-primary:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 40px rgba(236,72,153,0.7);
+  box-shadow: 0 0 35px rgba(236,72,153,0.7);
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
+
 .section {
   padding: 80px 0;
 }
 
-/* CARDS */
+/* ================= CARDS ================= */
+
 .card,
 .price-card,
+.feature-card,
 .form-card,
 .info-card,
-.feature-card,
 .callout {
   background: var(--glass);
   backdrop-filter: blur(15px);
@@ -185,42 +182,50 @@ body {
   box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
-/* PRICING */
+/* ================= PRICING ================= */
+
 .price-card.popular {
   border: 2px solid var(--accent);
   box-shadow: 0 0 30px rgba(236,72,153,0.5);
 }
 
-/* FORM */
-input, textarea, select {
+/* ================= FORMS ================= */
+
+input,
+textarea,
+select {
   width: 100%;
   padding: 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid var(--border);
   background: rgba(255,255,255,0.05);
-  color: white;
+  color: var(--text-main);
   margin-bottom: 15px;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(236,72,153,0.6);
+  box-shadow: 0 0 12px rgba(236,72,153,0.6);
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
+
 .site-footer {
   margin-top: 80px;
   padding: 40px 0;
-  background: rgba(15,23,42,0.7);
+  background: rgba(15,23,42,0.8);
   backdrop-filter: blur(12px);
   border-top: 1px solid var(--border);
   text-align: center;
   color: var(--text-soft);
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px) {
   .navbar {
     flex-direction: column;
     gap: 15px;
