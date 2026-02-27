@@ -941,3 +941,21 @@ moi2, [27/02/2026 16:40]
   background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
   z-index: 1;
 }
+.intro-video-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.video-wrapper {
+    max-width: 900px;
+    margin: 40px auto 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
