@@ -221,3 +221,28 @@ select:focus{
   .nav-links{flex-direction:column;gap:12px;}
   .hero h1{font-size:2.2rem;}
 }
+
+/* ===== FORCE REMOVE ALL BLUE ===== */
+
+.text-gradient {
+  background: linear-gradient(90deg, #9d4edd, #ff4fd8) !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0f0c29, #1a0933, #240046) !important;
+}
+
+.hero-glow,
+.hero::before {
+  background: radial-gradient(circle, rgba(157,78,221,.4), transparent 70%) !important;
+}
+
+.nav-link.is-active {
+  background: linear-gradient(135deg, #9d4edd, #ff4fd8) !important;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #9d4edd, #ff4fd8) !important;
+}
