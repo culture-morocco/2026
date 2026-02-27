@@ -1,247 +1,150 @@
-<!-- index.html -->
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EduPro Academy | Home</title>
-  <meta name="description" content="EduPro Academy: formazione moderna, corsi pratici e docenti esperti. Impara oggi, cresci domani." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2024">
-</head>
+/* ===============================
+   EduPro Academy - Clean Stable
+   No Blue - No Glow - No Overlay
+================================ */
 
-<body>
-  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+:root{
+  --bg:#140a28;
+  --bg-dark:#0d061a;
+  --primary:#9d4edd;
+  --accent:#ff4fd8;
+  --text:#ffffff;
+  --muted:#d6c8f2;
+  --card:rgba(255,255,255,.05);
+  --border:rgba(255,255,255,.12);
+}
 
-  <header class="site-header">
-    <nav class="navbar container" aria-label="Navigazione principale">
-      <a class="brand" href="index.html" aria-label="EduPro Academy, Home">
-        <span class="brand-mark" aria-hidden="true">EA</span>
-        <span class="brand-text">EduPro Academy</span>
-      </a>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-      <ul class="nav-links" role="list">
-        <li><a class="nav-link is-active" href="index.html" aria-current="page">Home</a></li>
-        <li><a class="nav-link" href="courses.html">Corsi</a></li>
-        <li><a class="nav-link" href="teachers.html">Docenti</a></li>
-        <li><a class="nav-link" href="pricing.html">Prezzi</a></li>
-        <li><a class="nav-link" href="contact.html">Contatti</a></li>
-      </ul>
+body{
+  font-family:Inter,sans-serif;
+  background:linear-gradient(135deg,#0d061a,#140a28);
+  color:var(--text);
+  line-height:1.6;
+}
 
-      <a class="nav-cta" href="pricing.html">Iscriviti</a>
-    </nav>
-  </header>
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
 
-  <main id="contenuto">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <p class="badge">Formazione online • Live & On-demand</p>
-          <h1>Impara competenze reali con <span class="text-gradient">EduPro Academy</span></h1>
-          <p class="lead">
-            Corsi pratici, docenti esperti e percorsi guidati per accelerare la tua crescita professionale.
-            Studia quando vuoi, con un’esperienza moderna e supporto costante.
-          </p>
+/* NAVBAR */
+.site-header{
+  background:rgba(0,0,0,.5);
+  border-bottom:1px solid var(--border);
+  padding:15px 0;
+}
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="courses.html">Scopri i corsi</a>
-            <a class="btn btn-ghost" href="contact.html">Parla con noi</a>
-          </div>
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-          <dl class="hero-stats" aria-label="Statistiche principali">
-            <div class="stat">
-              <dt>+120</dt>
-              <dd>Lezioni aggiornate</dd>
-            </div>
-            <div class="stat">
-              <dt>24/7</dt>
-              <dd>Accesso alla piattaforma</dd>
-            </div>
-            <div class="stat">
-              <dt>4.8/5</dt>
-              <dd>Soddisfazione studenti</dd>
-            </div>
-          </dl>
-        </div>
+.brand-text{
+  font-weight:800;
+  font-size:1.3rem;
+  color:var(--accent);
+}
 
-        <div class="hero-panel" aria-label="Pannello informativo">
-          <div class="panel-card">
-            <h2 class="panel-title">Percorsi consigliati</h2>
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
 
-            <ul class="panel-list" role="list">
-              <li class="panel-item">
-                <div class="panel-icon" aria-hidden="true">🎓</div>
-                <div>
-                  <p class="panel-item-title">Web Design & UI</p>
-                  <p class="panel-item-sub">Figma, design system, prototipi</p>
-                </div>
-              </li>
+.nav-link{
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:500;
+}
 
-              <li class="panel-item">
-                <div class="panel-icon" aria-hidden="true">📊</div>
-                <div>
-                  <p class="panel-item-title">Data & Analytics</p>
-                  <p class="panel-item-sub">Excel avanzato, BI, dashboard</p>
-                </div>
-              </li>
+.nav-link:hover,
+.nav-link.is-active{
+  color:var(--accent);
+}
 
-              <li class="panel-item">
-                <div class="panel-icon" aria-hidden="true">🚀</div>
-                <div>
-                  <p class="panel-item-title">Marketing Digitale</p>
-                  <p class="panel-item-sub">SEO, ads, contenuti, strategy</p>
-                </div>
-              </li>
-            </ul>
+/* HERO */
+.hero{
+  padding:100px 0;
+}
 
-            <a class="panel-link" href="pricing.html">Vedi piani e vantaggi →</a>
-          </div>
-        </div>
-      </div>
+.hero h1{
+  font-size:3rem;
+  color:var(--primary);
+  margin-bottom:20px;
+}
 
-      <div class="hero-glow" aria-hidden="true"></div>
-    </section>
+.hero p{
+  color:var(--muted);
+  max-width:600px;
+  margin-bottom:30px;
+}
 
-    <section class="section">
-      <div class="container">
-        <header class="section-head">
-          <h2>Perché scegliere EduPro</h2>
-          <p class="muted">
-            Un’esperienza di apprendimento curata: contenuti moderni, supporto umano e percorso chiaro.
-          </p>
-        </header>
+/* BUTTON */
+.btn{
+  padding:12px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+}
 
-        <div class="feature-grid">
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🧭</div>
-            <h3>Percorsi guidati</h3>
-            <p class="muted">Struttura chiara per passare da zero a competente senza perdere tempo.</p>
-          </article>
+.btn-primary{
+  background:var(--primary);
+  color:white;
+}
 
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🤝</div>
-            <h3>Supporto docente</h3>
-            <p class="muted">Feedback e consigli pratici per migliorare davvero, step by step.</p>
-          </article>
+.btn-primary:hover{
+  background:var(--accent);
+}
 
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🏆</div>
-            <h3>Approccio pratico</h3>
-            <p class="muted">Esercizi e progetti realistici per costruire un portfolio credibile.</p>
-          </article>
+/* CARDS */
+.card,
+.price-card,
+.feature-card,
+.form-card,
+.info-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:20px;
+}
 
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🔒</div>
-            <h3>Qualità e aggiornamenti</h3>
-            <p class="muted">Materiali rivisti e ampliati regolarmente per restare al passo.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+/* PRICING */
+.price-card.popular{
+  border:2px solid var(--accent);
+}
 
-    <section class="section section-alt">
-      <div class="container">
-        <div class="split">
-          <div>
-            <h2>Una piattaforma pensata per la tua crescita</h2>
-            <p class="muted">
-              Studia in modo flessibile con lezioni ben organizzate, risorse scaricabili e progressi chiari.
-              Scegli un piano e inizia subito.
-            </p>
+/* FORM */
+input,textarea,select{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:#1b1035;
+  color:white;
+  margin-bottom:15px;
+}
 
-            <ul class="checklist" role="list">
-              <li>Accesso da mobile, tablet e desktop</li>
-              <li>Materiali e template inclusi</li>
-              <li>Community e supporto dedicato</li>
-              <li>Certificato di completamento</li>
-            </ul>
+/* FOOTER */
+.site-footer{
+  padding:30px 0;
+  text-align:center;
+  background:var(--bg-dark);
+  border-top:1px solid var(--border);
+  color:var(--muted);
+}
 
-            <div class="inline-actions">
-              <a class="btn btn-primary" href="pricing.html">Vedi i prezzi</a>
-              <a class="btn btn-ghost" href="teachers.html">Conosci i docenti</a>
-            </div>
-          </div>
-
-          <aside class="callout">
-            <h3>Promo di benvenuto</h3>
-            <p class="muted">
-              Inizia con il piano <strong>Starter</strong> e ottieni accesso immediato ai corsi base.
-              Passa a Pro quando vuoi.
-            </p>
-            <div class="callout-row">
-              <span class="pill">Nessun vincolo</span>
-              <span class="pill">Disdici in qualsiasi momento</span>
-            </div>
-            <a class="callout-link" href="contact.html">Hai domande? Contattaci →</a>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="cta-band">
-          <div class="cta-text">
-            <h2>Pronto a iniziare?</h2>
-            <p class="muted">Scegli un corso e fai il primo passo verso il tuo prossimo obiettivo.</p>
-          </div>
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="courses.html">Esplora i corsi</a>
-            <a class="btn btn-ghost" href="pricing.html">Piani e vantaggi</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="brand brand--footer">
-          <span class="brand-mark" aria-hidden="true">EA</span>
-          <span class="brand-text">EduPro Academy</span>
-        </div>
-        <p class="muted">
-          Formazione moderna per chi vuole crescere con metodo, pratica e supporto.
-        </p>
-      </div>
-
-      <div class="footer-cols" role="list">
-        <div class="footer-col" role="listitem">
-          <h3>Academy</h3>
-          <ul role="list">
-            <li><a href="courses.html">Corsi</a></li>
-            <li><a href="teachers.html">Docenti</a></li>
-            <li><a href="pricing.html">Prezzi</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col" role="listitem">
-          <h3>Supporto</h3>
-          <ul role="list">
-            <li><a href="contact.html">Contatti</a></li>
-            <li><a href="contact.html#faq">FAQ</a></li>
-            <li><a href="contact.html#orari">Orari</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col" role="listitem">
-          <h3>Legale</h3>
-          <ul role="list">
-            <li><a href="#" aria-label="Termini di servizio (placeholder)">Termini</a></li>
-            <li><a href="#" aria-label="Privacy policy (placeholder)">Privacy</a></li>
-            <li><a href="#" aria-label="Cookie policy (placeholder)">Cookie</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p class="muted">© <span>2026</span> EduPro Academy. Tutti i diritti riservati.</p>
-      <p class="muted">Design: HTML5 + CSS3</p>
-    </div>
-  </footer>
-</body>
-</html>
+/* RESPONSIVE */
+@media(max-width:768px){
+  .navbar{
+    flex-direction:column;
+    gap:15px;
+  }
+}
