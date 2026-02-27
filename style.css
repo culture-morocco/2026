@@ -1,32 +1,48 @@
-/* ===============================
-   EduPro Academy - Clean Stable
-   No Blue - No Glow - No Overlay
-================================ */
+/* =========================================
+   EduPro Academy - NO BLUE VERSION
+   Purple / Pink / Dark Theme Only
+========================================= */
 
 :root{
-  --bg:#140a28;
-  --bg-dark:#0d061a;
+  --bg-1:#0f0c29;
+  --bg-2:#1a0933;
+  --bg-3:#240046;
+
   --primary:#9d4edd;
   --accent:#ff4fd8;
+  --pink:#f72585;
+
   --text:#ffffff;
   --muted:#d6c8f2;
-  --card:rgba(255,255,255,.05);
-  --border:rgba(255,255,255,.12);
+
+  --glass:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.15);
+
+  --radius:16px;
+  --transition:.3s ease;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
 body{
-  font-family:Inter,sans-serif;
-  background:linear-gradient(135deg,#0d061a,#140a28);
+  font-family:"Inter",sans-serif;
   color:var(--text);
+  background:linear-gradient(-45deg,var(--bg-1),var(--bg-2),var(--bg-3));
+  background-size:300% 300%;
+  animation:moveBg 18s ease infinite;
   line-height:1.6;
+  overflow-x:hidden;
 }
 
+@keyframes moveBg{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Container */
 .container{
   width:90%;
   max-width:1200px;
@@ -35,72 +51,112 @@ body{
 
 /* NAVBAR */
 .site-header{
-  background:rgba(0,0,0,.5);
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(15px);
+  background:rgba(0,0,0,.4);
   border-bottom:1px solid var(--border);
-  padding:15px 0;
+  z-index:1000;
 }
 
 .navbar{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:18px 0;
 }
 
 .brand-text{
   font-weight:800;
-  font-size:1.3rem;
-  color:var(--accent);
+  font-size:1.4rem;
+  background:linear-gradient(90deg,var(--primary),var(--pink));
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 .nav-links{
   list-style:none;
   display:flex;
-  gap:20px;
+  gap:25px;
 }
 
 .nav-link{
-  color:var(--muted);
   text-decoration:none;
-  font-weight:500;
+  color:var(--muted);
+  position:relative;
+  transition:var(--transition);
 }
 
-.nav-link:hover,
-.nav-link.is-active{
-  color:var(--accent);
+.nav-link:hover{color:#fff;}
+
+.nav-link::after{
+  content:"";
+  position:absolute;
+  bottom:-6px;
+  left:0;
+  width:0%;
+  height:2px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  transition:var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after{
+  width:100%;
 }
 
 /* HERO */
 .hero{
-  padding:100px 0;
+  padding:120px 0;
+  position:relative;
 }
 
 .hero h1{
   font-size:3rem;
-  color:var(--primary);
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  -webkit-background-clip:text;
+  color:transparent;
   margin-bottom:20px;
 }
 
 .hero p{
   color:var(--muted);
-  max-width:600px;
+  max-width:700px;
   margin-bottom:30px;
 }
 
-/* BUTTON */
+/* Purple Glow only */
+.hero::before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle,rgba(157,78,221,.35),transparent 70%);
+  top:-150px;
+  left:-150px;
+  filter:blur(120px);
+  z-index:-1;
+}
+
+/* BUTTONS */
 .btn{
-  padding:12px 25px;
-  border-radius:30px;
+  padding:14px 28px;
+  border-radius:40px;
   text-decoration:none;
   font-weight:600;
+  display:inline-block;
+  transition:var(--transition);
 }
 
 .btn-primary{
-  background:var(--primary);
+  background:linear-gradient(90deg,var(--primary),var(--pink));
   color:white;
+  box-shadow:0 0 25px rgba(157,78,221,.6);
 }
 
 .btn-primary:hover{
-  background:var(--accent);
+  transform:translateY(-4px);
+  box-shadow:0 0 40px rgba(247,37,133,.8);
 }
 
 /* CARDS */
@@ -108,43 +164,60 @@ body{
 .price-card,
 .feature-card,
 .form-card,
-.info-card{
-  background:var(--card);
+.info-card,
+.callout{
+  background:var(--glass);
+  backdrop-filter:blur(12px);
   border:1px solid var(--border);
-  border-radius:12px;
-  padding:20px;
-  margin-bottom:20px;
+  border-radius:var(--radius);
+  padding:25px;
+  transition:var(--transition);
 }
 
-/* PRICING */
+.card:hover,
+.price-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+/* PRICING POPULAR */
 .price-card.popular{
   border:2px solid var(--accent);
+  box-shadow:0 0 30px rgba(255,79,216,.6);
 }
 
-/* FORM */
+/* FORMS */
 input,textarea,select{
   width:100%;
-  padding:10px;
-  border-radius:8px;
+  padding:14px;
+  border-radius:10px;
   border:1px solid var(--border);
-  background:#1b1035;
+  background:rgba(255,255,255,.05);
   color:white;
   margin-bottom:15px;
 }
 
+input:focus,
+textarea:focus,
+select:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 15px rgba(255,79,216,.6);
+}
+
 /* FOOTER */
 .site-footer{
-  padding:30px 0;
-  text-align:center;
-  background:var(--bg-dark);
+  margin-top:80px;
+  padding:40px 0;
+  background:rgba(0,0,0,.4);
   border-top:1px solid var(--border);
+  text-align:center;
   color:var(--muted);
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  .navbar{
-    flex-direction:column;
-    gap:15px;
-  }
+  .navbar{flex-direction:column;gap:15px;}
+  .nav-links{flex-direction:column;gap:12px;}
+  .hero h1{font-size:2.2rem;}
 }
