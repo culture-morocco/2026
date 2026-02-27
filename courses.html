@@ -1,103 +1,179 @@
-<!DOCTYPE html>
+<!-- courses.html -->
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EduMaster — Courses</title>
+  <title>EduPro Academy | Corsi</title>
+  <meta name="description" content="Scopri i corsi di EduPro Academy: percorsi pratici in design, data, marketing e project management." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <div class="container topbar">
-      <div class="brand">
-        <div class="logo">E</div>
-        <div>
-          <div>EduMaster Academy</div>
-          <div style="font-size:12px;color:var(--muted);font-weight:600">Catalogo corsi</div>
-        </div>
-      </div>
-      <nav>
-        <a class="pill" href="index.html">Home</a>
-        <a class="pill active" href="courses.html">Courses</a>
-        <a class="pill" href="teachers.html">Teachers</a>
-        <a class="pill" href="pricing.html">Pricing</a>
-        <a class="pill" href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navigazione principale">
+      <a class="brand" href="index.html" aria-label="EduPro Academy, Home">
+        <span class="brand-mark" aria-hidden="true">EA</span>
+        <span class="brand-text">EduPro Academy</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link is-active" href="courses.html" aria-current="page">Corsi</a></li>
+        <li><a class="nav-link" href="teachers.html">Docenti</a></li>
+        <li><a class="nav-link" href="pricing.html">Prezzi</a></li>
+        <li><a class="nav-link" href="contact.html">Contatti</a></li>
+      </ul>
+
+      <a class="nav-cta" href="pricing.html">Iscriviti</a>
+    </nav>
   </header>
 
-  <main class="container">
-    <section class="section">
-      <div class="sectionHead">
-        <div>
-          <h2>Corsi</h2>
-          <p>Una selezione di corsi (demo). Puoi aggiungere o cambiare contenuti.</p>
-        </div>
-        <span class="badge">Pagina 2/5</span>
+  <main id="contenuto">
+    <section class="page-hero">
+      <div class="container">
+        <p class="kicker">Catalogo corsi</p>
+        <h1>Impara con percorsi pratici e aggiornati</h1>
+        <p>
+          Dalla teoria all’azione: ogni corso include esercitazioni, template e attività guidate.
+          Scegli il percorso più adatto al tuo obiettivo.
+        </p>
       </div>
+    </section>
 
-      <div class="grid">
-        <article class="card">
-          <div class="cardImg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg');"></div>
-          <div class="cardBody">
-            <h3>HTML & CSS</h3>
-            <p>Layout, griglie, tipografia e responsive design.</p>
-            <div class="meta"><span class="tag">Base</span><span class="tag">Certificato</span></div>
-          </div>
-        </article>
+    <section class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2>Corsi in evidenza</h2>
+          <p class="muted">I più richiesti dagli studenti, ideali per costruire competenze spendibili subito.</p>
+        </header>
 
-        <article class="card">
-          <div class="cardImg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png');"></div>
-          <div class="cardBody">
-            <h3>JavaScript</h3>
-            <p>Eventi, DOM e mini-progetti interattivi.</p>
-            <div class="meta"><span class="tag">Base</span><span class="tag">Progetti</span></div>
-          </div>
-        </article>
+        <div class="grid">
+          <article class="card">
+            <h3>Web Design Moderno</h3>
+            <p class="muted">Layout, tipografia, componenti e best practice per UI pulite e professionali.</p>
+            <div class="card-meta">
+              <span class="tag">Livello: Base</span>
+              <span class="tag">Durata: 6 settimane</span>
+              <span class="tag">Progetto: Landing</span>
+            </div>
+          </article>
 
-        <article class="card">
-          <div class="cardImg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/9/96/Python-logo-notext.svg');"></div>
-          <div class="cardBody">
-            <h3>Python</h3>
-            <p>Fondamenti, esercizi e logica di programmazione.</p>
-            <div class="meta"><span class="tag">Base</span><span class="tag">Esercizi</span></div>
-          </div>
-        </article>
+          <article class="card">
+            <h3>Data Analytics Essentials</h3>
+            <p class="muted">Dati, KPI e dashboard: impara a leggere e comunicare insight con metodo.</p>
+            <div class="card-meta">
+              <span class="tag">Livello: Intermedio</span>
+              <span class="tag">Durata: 8 settimane</span>
+              <span class="tag">Progetto: Dashboard</span>
+            </div>
+          </article>
 
-        <article class="card">
-          <div class="cardImg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png');"></div>
-          <div class="cardBody">
-            <h3>SQL</h3>
-            <p>Database, query, join e gestione dati.</p>
-            <div class="meta"><span class="tag">Intermedio</span><span class="tag">Data</span></div>
-          </div>
-        </article>
+          <article class="card">
+            <h3>Marketing Digitale</h3>
+            <p class="muted">Strategia, contenuti e campagne: un percorso completo per crescere online.</p>
+            <div class="card-meta">
+              <span class="tag">Livello: Base</span>
+              <span class="tag">Durata: 7 settimane</span>
+              <span class="tag">Progetto: Piano marketing</span>
+            </div>
+          </article>
 
-        <article class="card">
-          <div class="cardImg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/0/05/Logo_Scratch.svg');"></div>
-          <div class="cardBody">
-            <h3>Informatica per principianti</h3>
-            <p>Concetti base, sicurezza, strumenti digitali.</p>
-            <div class="meta"><span class="tag">Base</span><span class="tag">School</span></div>
-          </div>
-        </article>
+          <article class="card">
+            <h3>UX Research & Testing</h3>
+            <p class="muted">Interviste, test e sintesi: migliora prodotti digitali con evidenze reali.</p>
+            <div class="card-meta">
+              <span class="tag">Livello: Intermedio</span>
+              <span class="tag">Durata: 5 settimane</span>
+              <span class="tag">Progetto: Report UX</span>
+            </div>
+          </article>
 
-        <article class="card">
-          <div class="cardImg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Analytics_Logo_2015.png');"></div>
-          <div class="cardBody">
-            <h3>Marketing digitale</h3>
-            <p>SEO, social media e strategie semplici.</p>
-            <div class="meta"><span class="tag">Intermedio</span><span class="tag">Business</span></div>
+          <article class="card">
+            <h3>Project Management Agile</h3>
+            <p class="muted">Scrum, planning e delivery: gestisci progetti con chiarezza e ritmo.</p>
+            <div class="card-meta">
+              <span class="tag">Livello: Base</span>
+              <span class="tag">Durata: 4 settimane</span>
+              <span class="tag">Toolkit: Template</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Branding & Identità Visiva</h3>
+            <p class="muted">Costruisci un brand coerente: valori, tono di voce e sistema visivo.</p>
+            <div class="card-meta">
+              <span class="tag">Livello: Intermedio</span>
+              <span class="tag">Durata: 6 settimane</span>
+              <span class="tag">Progetto: Brand kit</span>
+            </div>
+          </article>
+        </div>
+
+        <hr class="hr" />
+
+        <div class="cta-band">
+          <div class="cta-text">
+            <h2>Vuoi un consiglio sul percorso?</h2>
+            <p class="muted">Scrivici e ti aiutiamo a scegliere il corso giusto in base ai tuoi obiettivi.</p>
           </div>
-        </article>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="contact.html">Contattaci</a>
+            <a class="btn btn-ghost" href="pricing.html">Vedi i piani</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container footerRow">
-      <div>© 2026 EduMaster Academy — Progetto scolastico</div>
-      <div><b>by Rania</b></div>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand brand--footer">
+          <span class="brand-mark" aria-hidden="true">EA</span>
+          <span class="brand-text">EduPro Academy</span>
+        </div>
+        <p class="muted">Formazione moderna per crescere con metodo, pratica e supporto.</p>
+      </div>
+
+      <div class="footer-cols" role="list">
+        <div class="footer-col" role="listitem">
+          <h3>Academy</h3>
+          <ul role="list">
+            <li><a href="courses.html">Corsi</a></li>
+            <li><a href="teachers.html">Docenti</a></li>
+            <li><a href="pricing.html">Prezzi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col" role="listitem">
+          <h3>Supporto</h3>
+          <ul role="list">
+            <li><a href="contact.html">Contatti</a></li>
+            <li><a href="contact.html#faq">FAQ</a></li>
+            <li><a href="contact.html#orari">Orari</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col" role="listitem">
+          <h3>Legale</h3>
+          <ul role="list">
+            <li><a href="#" aria-label="Termini di servizio (placeholder)">Termini</a></li>
+            <li><a href="#" aria-label="Privacy policy (placeholder)">Privacy</a></li>
+            <li><a href="#" aria-label="Cookie policy (placeholder)">Cookie</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p class="muted">© <span>2026</span> EduPro Academy. Tutti i diritti riservati.</p>
+      <p class="muted">Design: HTML5 + CSS3</p>
     </div>
   </footer>
 </body>
