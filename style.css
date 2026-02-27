@@ -960,3 +960,44 @@ moi2, [27/02/2026 16:40]
     height: auto;
     display: block;
 }
+
+.music-section {
+    margin-top: 50px;
+    text-align: center;
+    position: relative;
+}
+
+.music-text {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #00e0ff;
+}
+
+/* audio style */
+.music-section audio {
+    width: 340px;
+    max-width: 100%;
+    border-radius: 30px;
+}
+
+/* small animated waves beside audio */
+.music-section::after {
+    content: "";
+    position: absolute;
+    right: 25%;
+    top: 65%;
+    width: 5px;
+    height: 30px;
+    background: #00e0ff;
+    box-shadow:
+        10px 0 #00e0ff,
+        20px 0 #00e0ff,
+        30px 0 #00e0ff;
+    animation: wave 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes wave {
+    from { height: 15px; }
+    to { height: 45px; }
+}
