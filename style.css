@@ -1,28 +1,28 @@
 /* style.css */
 :root{
-  --bg-0:#070a1a;
-  --bg-1:#0b0f2e;
-  --bg-2:#140a3a;
+  --bg-0:#0b0f1a;
+  --bg-1:#1a0933;
+  --bg-2:#240046;
 
-  --card: rgba(255,255,255,.08);
-  --card-strong: rgba(255,255,255,.11);
-  --stroke: rgba(255,255,255,.12);
+  --card: rgba(255,255,255,.07);
+  --card-strong: rgba(255,255,255,.10);
+  --stroke: rgba(255,255,255,.14);
 
-  --text:#f4f6ff;
-  --muted:#c7cbe6;
+  --text:#ffffff;
+  --muted:#cbd5ff;
 
-  --primary:#7c5cff;
-  --primary-2:#3b82f6;
-  --accent:#ff4fd8;
+  --primary:#9333ea;      /* Purple Neon */
+  --primary-2:#06b6d4;    /* Cyan */
+  --accent:#f472b6;       /* Pink */
 
-  --shadow: 0 18px 45px rgba(0,0,0,.35);
-  --shadow-soft: 0 12px 30px rgba(0,0,0,.28);
+  --shadow: 0 20px 50px rgba(0,0,0,.45);
+  --shadow-soft: 0 15px 35px rgba(0,0,0,.35);
 
   --radius: 16px;
   --radius-sm: 12px;
   --container: 1120px;
 
-  --speed: 220ms;
+  --speed: 250ms;
   --ease: cubic-bezier(.2,.8,.2,1);
 }
 
@@ -37,11 +37,20 @@ body{
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--text);
   line-height: 1.6;
-  background:
-    radial-gradient(900px 500px at 85% 5%, rgba(255,79,216,.18), transparent 55%),
-    radial-gradient(850px 540px at 10% 10%, rgba(59,130,246,.22), transparent 55%),
-    linear-gradient(135deg, #06102b 0%, #180a39 55%, #2a0f4b 100%);
+  background: linear-gradient(-45deg,
+      #0b0f1a,
+      #1a0933,
+      #240046,
+      #0f172a);
+  background-size: 400% 400%;
+  animation: gradientMove 18s ease infinite;
   min-height: 100vh;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 img{ max-width:100%; height:auto; display:block; }
